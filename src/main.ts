@@ -30,7 +30,16 @@ let crop: Crop | undefined,
   busy = false,
   peaks: number[] = [];
 let activeKind: "edit" | "advanced" = "edit";
-const playback = createPreview(error);
+const playback = createPreview(error, updatePlayhead);
+function updatePlayhead(time: number) {
+  const position = Math.max(0, Math.min(meta?.duration ?? 0, time));
+  setValue("playhead", position);
+  $("current-time").textContent = `${timeLabel(position)}.${Math.floor(
+    (position % 1) * 100,
+  )
+    .toString()
+    .padStart(2, "0")}`;
+}
 function error(text: string) {
   $("error").textContent = text;
   $("error").hidden = !text;
@@ -61,6 +70,7 @@ function setBusy(next: boolean, kind: "edit" | "advanced" = "edit") {
     "end",
     "trim-start",
     "trim-end",
+    "playhead",
     "crop-toggle",
     "crop-clear",
     "preview-clip",
@@ -114,9 +124,13 @@ function drawWaveform() {
   );
   const max = Math.max(0.05, ...peaks);
   for (let x = 0; x < width; x += 3) {
-    const peak = peaks.length
-      ? peaks[Math.floor((x / width) * peaks.length)]
-      : 0;
+    const from = Math.floor((x / width) * peaks.length);
+    const to = Math.min(
+      peaks.length,
+      Math.ceil(((x + 3) / width) * peaks.length),
+    );
+    let peak = 0;
+    for (let i = from; i < to; i++) peak = Math.max(peak, peaks[i]);
     const h = Math.max(1, (peak / max) * (height - 14));
     ctx.fillRect(x, (height - h) / 2, 1.5, h);
   }
@@ -188,7 +202,7 @@ async function loadFile(next: File) {
       meta = message.metadata;
       $("file-meta").textContent =
         `${meta.width} × ${meta.height} · ${timeLabel(meta.duration)} · ${bytes(next.size)}`;
-      for (const id of ["start", "end", "trim-start", "trim-end"])
+      for (const id of ["start", "end", "trim-start", "trim-end", "playhead"])
         $<HTMLInputElement>(id).max = String(meta.duration);
       setValue("start", 0);
       setValue("end", meta.duration.toFixed(3));
@@ -196,6 +210,7 @@ async function loadFile(next: File) {
       $<HTMLSelectElement>("audio").disabled = !meta.audioCodec;
       setBusy(busy, activeKind);
       updateTrim();
+      updatePlayhead(0);
       job(
         meta.decodable
           ? ""
@@ -267,19 +282,38 @@ document.querySelectorAll<HTMLButtonElement>("[data-size]").forEach((b) =>
 $("preview-clip").addEventListener("click", () => {
   if (meta) void playback.play(num("start"), num("end"));
 });
-$("timeline").addEventListener("pointerdown", (e) => {
-  if (!meta || busy || e.target instanceof HTMLInputElement) return;
-  const rect = $("timeline").getBoundingClientRect();
+$("playhead").addEventListener("input", () => {
+  if (meta && !busy) void playback.seek(num("playhead"));
+});
+const timeline = $("timeline");
+let scrubbing = false;
+function scrub(event: PointerEvent) {
+  if (!meta) return;
+  const rect = timeline.getBoundingClientRect();
   void playback.seek(
     Math.max(
       0,
       Math.min(
         meta.duration,
-        ((e.clientX - rect.left) / rect.width) * meta.duration,
+        ((event.clientX - rect.left) / rect.width) * meta.duration,
       ),
     ),
   );
+}
+timeline.addEventListener("pointerdown", (event) => {
+  if (!meta || busy || event.target instanceof HTMLInputElement) return;
+  scrubbing = true;
+  timeline.setPointerCapture(event.pointerId);
+  event.preventDefault();
+  scrub(event);
 });
+timeline.addEventListener("pointermove", (event) => {
+  if (scrubbing) scrub(event);
+});
+for (const event of ["pointerup", "pointercancel"])
+  timeline.addEventListener(event, () => {
+    scrubbing = false;
+  });
 function fittedRect() {
   const r = preview.getBoundingClientRect();
   const scale = Math.min(r.width / meta!.width, r.height / meta!.height);

@@ -348,6 +348,9 @@ legend {
   background: var(--panel);
   border-radius: 5px;
   isolation: isolate;
+  touch-action: none;
+  user-select: none;
+  cursor: crosshair;
 }
 .timeline canvas {
   width: 100%;
@@ -363,6 +366,7 @@ legend {
   pointer-events: none;
 }
 .timeline input[type="range"] {
+  z-index: 3;
   position: absolute;
   inset: 0;
   width: 100%;
@@ -393,6 +397,28 @@ legend {
   border-radius: 3px;
   pointer-events: auto;
   cursor: ew-resize;
+}
+#playhead {
+  z-index: 2;
+}
+#playhead::-webkit-slider-thumb {
+  width: 2px;
+  height: 76px;
+  border: 0;
+  border-radius: 0;
+  background: var(--ink);
+  box-shadow: 0 0 0 1px var(--bg);
+}
+#playhead::-moz-range-thumb {
+  width: 2px;
+  height: 76px;
+  border: 0;
+  border-radius: 0;
+  background: var(--ink);
+  box-shadow: 0 0 0 1px var(--bg);
+}
+#current-time {
+  color: var(--ink);
 }
 .time-ruler {
   display: flex;

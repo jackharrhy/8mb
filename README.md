@@ -24,7 +24,7 @@ The static server listens on `127.0.0.1:5188`. It requires HTTPS outside localho
 
 ## Editing
 
-Open a video, set its start/end times, optionally crop, and choose a maximum output size in MiB. Export as MP4/H.264 or WebM/VP9. Audio can be compressed, removed, or copied without re-encoding. Exports check their actual size and retry up to three times if oversized.
+Open a video, set its start/end times, optionally crop, and choose a maximum output size in MiB. The trim waveform shows the current playhead; click or drag it to seek. Export as MP4/H.264 or WebM/VP9. Audio can be compressed, removed, or copied without re-encoding. Exports check their actual size and retry up to three times if oversized.
 
 Advanced runs custom FFmpeg arguments and saves commands locally. Use `input.ext` for the selected file; omit `-i` to insert it automatically.
 
@@ -47,6 +47,7 @@ npm run build
 # With npm start running and Playwright Chromium plus native ffmpeg/ffprobe installed:
 npm run test:browser
 npm run test:edge
+node scripts/timeline-check.mjs
 ```
 
 Browser tests cover exports, size limits, preserved audio packet hashes, large-file reading, playback, and responsive layout. Edge checks cover OPFS, WebM, cancellation, GIF, MP3, and accessibility.

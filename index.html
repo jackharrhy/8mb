@@ -122,6 +122,16 @@
                 <canvas id="waveform" aria-label="Audio waveform"></canvas>
                 <div id="trim-selection" class="trim-selection"></div>
                 <input
+                  id="playhead"
+                  type="range"
+                  min="0"
+                  max="100"
+                  step="0.001"
+                  value="0"
+                  aria-label="Playhead"
+                  disabled
+                />
+                <input
                   id="trim-start"
                   type="range"
                   min="0"
@@ -142,7 +152,9 @@
                 />
               </div>
               <div class="time-ruler">
-                <span>0:00</span><span id="timeline-end">0:00</span>
+                <span>0:00</span
+                ><output id="current-time" for="playhead">0:00.00</output
+                ><span id="timeline-end">0:00</span>
               </div>
               <div class="trim-fields">
                 <label

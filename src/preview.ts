@@ -9,7 +9,10 @@ import { $ } from "./ui";
 
 // Native playback handles the common case. Demuxed playback also previews containers
 // that WebCodecs understands but the browser's <video> element cannot open.
-export function createPreview(reportError: (text: string) => void) {
+export function createPreview(
+  reportError: (text: string) => void,
+  onPosition: (time: number) => void,
+) {
   const video = $<HTMLVideoElement>("video");
   const canvas = $<HTMLCanvasElement>("frame");
   let file: File | undefined,
@@ -20,6 +23,27 @@ export function createPreview(reportError: (text: string) => void) {
     playing = false,
     clipEnd = Infinity,
     audioContext: AudioContext | undefined;
+  let animation = 0;
+  function nativePosition() {
+    if (!video.hidden) onPosition(video.currentTime);
+  }
+  function followPlayback() {
+    nativePosition();
+    if (!video.paused && !video.hidden)
+      animation = requestAnimationFrame(followPlayback);
+  }
+  video.addEventListener("play", () => {
+    cancelAnimationFrame(animation);
+    followPlayback();
+  });
+  for (const event of ["pause", "ended"]) {
+    video.addEventListener(event, () => {
+      cancelAnimationFrame(animation);
+      nativePosition();
+    });
+  }
+  for (const event of ["seeking", "seeked", "timeupdate"])
+    video.addEventListener(event, nativePosition);
   const wait = (ms: number) =>
     new Promise<void>((resolve) => setTimeout(resolve, ms));
   function pause() {
@@ -36,6 +60,7 @@ export function createPreview(reportError: (text: string) => void) {
   }
   async function seek(time: number) {
     pause();
+    onPosition(time);
     if (!video.hidden) {
       video.currentTime = time;
       return;
@@ -96,6 +121,7 @@ export function createPreview(reportError: (text: string) => void) {
     video.hidden = false;
     canvas.hidden = true;
     video.src = url;
+    onPosition(0);
   }
   async function play(start: number, end: number) {
     if (playing) {
@@ -157,6 +183,7 @@ export function createPreview(reportError: (text: string) => void) {
             await wait(Math.min(40, due - performance.now()));
           if (token !== generation) break;
           draw(frame);
+          onPosition(frame.timestamp);
         }
       }
       await Promise.all([renderVideo(), renderAudio()]);
@@ -165,7 +192,10 @@ export function createPreview(reportError: (text: string) => void) {
         performance.now() < wallStart + (end - start) * 1000
       )
         await wait(40);
-      if (token === generation) pause();
+      if (token === generation) {
+        onPosition(end);
+        pause();
+      }
     } catch (e) {
       pause();
       reportError(`Playback failed. ${e instanceof Error ? e.message : e}`);
