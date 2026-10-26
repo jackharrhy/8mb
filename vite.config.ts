@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 export default defineConfig({
+  base: "/8mb/",
   worker: { format: "es" },
   build: { target: "es2022" },
   server: {

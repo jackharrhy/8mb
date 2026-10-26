@@ -11,7 +11,8 @@ self.addEventListener("activate", (event) =>
         type: "window",
         includeUncontrolled: true,
       }))
-        await client.navigate(client.url);
+        if (client.url.startsWith(self.registration.scope))
+          await client.navigate(client.url);
     })(),
   ),
 );

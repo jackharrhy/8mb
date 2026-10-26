@@ -1,7 +1,8 @@
 // Remove the service worker installed by earlier builds. New visits register none.
 export async function clearLegacyCache() {
   try {
-    const script = `${location.origin}/sw.js`;
+    const script = new URL(`${import.meta.env.BASE_URL}sw.js`, location.origin)
+      .href;
     const controlled =
       navigator.serviceWorker?.controller?.scriptURL === script;
     const registrations =

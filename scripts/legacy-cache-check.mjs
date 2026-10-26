@@ -28,7 +28,12 @@ const server = createServer(async (req, res) => {
         ? oldHtml
         : legacy && path === "/sw.js"
           ? oldWorker
-          : await readFile("dist" + (path === "/" ? "/index.html" : path)),
+          : await readFile(
+              "dist" +
+                (path === "/" || path === "/8mb/"
+                  ? "/index.html"
+                  : path.replace(/^\/8mb\//, "/")),
+            ),
     );
   } catch {
     res.writeHead(404);

@@ -102,8 +102,14 @@ export function initAdvanced({
     });
     try {
       await engine.load({
-        coreURL: location.origin + "/ffmpeg/ffmpeg-core.js",
-        wasmURL: location.origin + "/ffmpeg/ffmpeg-core.wasm",
+        coreURL: new URL(
+          `${import.meta.env.BASE_URL}ffmpeg/ffmpeg-core.js`,
+          location.origin,
+        ).href,
+        wasmURL: new URL(
+          `${import.meta.env.BASE_URL}ffmpeg/ffmpeg-core.wasm`,
+          location.origin,
+        ).href,
       });
       await engine.createDir("/source");
       await engine.mount(

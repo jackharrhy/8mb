@@ -32,6 +32,18 @@ const server = createServer(async (req, res) => {
     res.end();
     return;
   }
+  if (pathname === "/" || pathname === "/8mb") {
+    res.writeHead(308, { Location: "/8mb/" });
+    res.end();
+    return;
+  }
+  // Retire root-scoped workers from the original tailnet preview only.
+  if (pathname !== "/sw.js" && !pathname.startsWith("/8mb/")) {
+    res.writeHead(404);
+    res.end();
+    return;
+  }
+  pathname = pathname === "/sw.js" ? pathname : pathname.slice("/8mb".length);
   const path = resolve(
     root,
     "." + (pathname === "/" ? "/index.html" : pathname),

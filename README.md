@@ -2,7 +2,9 @@
 
 A Vite + TypeScript SPA for trimming, cropping and compressing videos. Files are processed in the browser with MediaBunny/WebCodecs or FFmpeg WASM. Nothing is uploaded.
 
-Preview: https://newport.hedgehog-python.ts.net:8465/
+Site: https://jackharrhy.dev/8mb/
+
+Source: https://github.com/jackharrhy/8mb
 
 ## Run
 
@@ -20,7 +22,7 @@ npm run build
 npm start
 ```
 
-The static server listens on `127.0.0.1:5188`. It requires HTTPS outside localhost for browser media APIs. There is no PWA, install prompt, or offline cache. `public/sw.js` only removes service workers installed by earlier builds.
+The local preview server listens on `127.0.0.1:5188` and redirects to `/8mb/`. It requires HTTPS outside localhost for browser media APIs. There is no PWA, install prompt, or offline cache. `public/sw.js` only removes service workers installed by earlier builds.
 
 ## Editing
 
@@ -52,15 +54,24 @@ node scripts/timeline-check.mjs
 
 Browser tests cover exports, size limits, preserved audio packet hashes, large-file reading, playback, and responsive layout. Edge checks cover OPFS, WebM, cancellation, GIF, MP3, and accessibility.
 
-## Hosting
-
-On newport, `~/.config/systemd/user/8mb-preview.service` runs the static server. Tailscale Serve maps HTTPS port 8465 to localhost 5188.
+## Docker and hosting
 
 ```sh
-systemctl --user status 8mb-preview
-systemctl --user restart 8mb-preview
+docker build -t 8mb .
+docker run --rm --read-only --tmpfs /tmp:rw,noexec,nosuid,size=16m --cap-drop ALL -p 8080:8080 8mb
 ```
 
-Rebuild after edits; the server reads the updated files without restarting.
+Open `http://localhost:8080/8mb/`. The runtime is nginx Alpine running as the nginx user; Node is only used to build. The image serves static files with the isolation headers required by browser media APIs. Hashed assets are cached; HTML is revalidated.
+
+Pushes to main build, test, and publish `ghcr.io/jackharrhy/8mb:main` plus a commit-SHA tag through GitHub Actions. `~/infra/hosts/mug/compose.yml` runs the image behind Traefik at `jackharrhy.dev/8mb/`.
+
+Browser checks can target the container or public site:
+
+```sh
+BASE_URL=http://localhost:8080/8mb/ npm run test:browser
+BASE_URL=https://jackharrhy.dev/8mb/ npm run test:edge
+```
+
+The original tailnet preview remains at `https://newport.hedgehog-python.ts.net:8465/8mb/`.
 
 Behavior reference: [jackharrhy/8mber, video-quality-preserve-audio](https://github.com/jackharrhy/8mber/tree/video-quality-preserve-audio), commit `227acc9`, cloned in `~/repos/contrib/8mber`. Styling follows `~/repos/personal/auth`.

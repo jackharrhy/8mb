@@ -18,7 +18,7 @@ page.on("pageerror", (e) => {
 page.on("console", (m) => {
   if (m.type() === "error") console.log("CONSOLE", m.text());
 });
-await page.goto("http://127.0.0.1:5188");
+await page.goto(process.env.BASE_URL ?? "http://127.0.0.1:5188/8mb/");
 await page.getByRole("navigation", { name: "Workspace" }).waitFor();
 await page.screenshot({
   path: ".impeccable/review/empty-desktop.png",

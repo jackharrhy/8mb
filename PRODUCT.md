@@ -3,7 +3,7 @@
 ## Platform
 web
 ## Stack
-Delegated by the user's instruction to finish end to end. Vite and TypeScript, browser-local MediaBunny/WebCodecs, optional FFmpeg WASM. A static Node server serves the build on the tailnet.
+Delegated by the user's instruction to finish end to end. Vite and TypeScript, browser-local MediaBunny/WebCodecs, optional FFmpeg WASM. Production is a static nginx Alpine container at jackharrhy.dev/8mb/. Node is used for builds and the local preview only.
 ## Users
 People trimming and shrinking local videos for upload limits. Initial testing is by Jack from another computer over Tailscale.
 ## Product Purpose

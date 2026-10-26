@@ -10,7 +10,7 @@ try {
   });
   const errors = [];
   page.on("pageerror", (e) => errors.push(e.message));
-  await page.goto("http://127.0.0.1:5188/");
+  await page.goto(process.env.BASE_URL ?? "http://127.0.0.1:5188/8mb/");
   await page.locator("#file").setInputFiles(".artifacts/source.mp4");
   await page.waitForFunction(
     () =>

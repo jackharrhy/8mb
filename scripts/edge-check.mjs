@@ -8,7 +8,9 @@ const browser = await chromium.launch({
 const context = await browser.newContext({ acceptDownloads: true });
 const page = await context.newPage();
 page.on("pageerror", (e) => console.log("PAGE ERROR", e.message));
-await page.goto("https://newport.hedgehog-python.ts.net:8465");
+await page.goto(
+  process.env.BASE_URL ?? "https://newport.hedgehog-python.ts.net:8465/8mb/",
+);
 await page.getByRole("navigation", { name: "Workspace" }).waitFor();
 console.log(
   "SECURE",
