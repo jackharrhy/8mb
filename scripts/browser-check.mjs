@@ -109,6 +109,7 @@ await page.screenshot({
   path: ".impeccable/review/advanced.png",
   fullPage: true,
 });
+await page.locator("#edit-tab").click();
 await page.locator("#file").setInputFiles(".artifacts/large.mp4");
 await page.waitForFunction(() =>
   document.querySelector("#file-meta").textContent.includes("2193.45"),
