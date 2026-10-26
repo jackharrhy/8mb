@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#fafaf9" />
     <meta
       name="description"
-      content="Trim, crop and compress a video to fit. Everything stays on your device."
+      content="Trim, crop and compress videos offline."
     />
     <title>8mb · Local video editor</title>
     <link rel="icon" type="image/svg+xml" href="/icon.svg" />
@@ -34,8 +34,7 @@
     <main id="main" class="workspace">
       <div class="page-heading">
         <div>
-          <h1>Make it fit.</h1>
-          <p class="muted">A smaller video. Everything stays on your device.</p>
+          <h1>Video editor</h1>
         </div>
         <button id="choose" class="with-icon">
           <i data-lucide="folder-open"></i>Open video</button
@@ -52,22 +51,14 @@
           <div class="editing">
             <div class="file-info">
               <strong id="filename">No video selected</strong
-              ><span id="file-meta" class="muted"
-                >MP4, MOV, WebM, MKV & more</span
-              >
+              ><span id="file-meta" class="muted"></span>
             </div>
             <div id="preview" class="preview">
               <div id="empty" class="empty-state">
                 <i data-lucide="film" class="film-icon"></i>
-                <h2>Your next clip starts here.</h2>
-                <p>
-                  Drop a video here, or open one from your device.<br />Trim the
-                  moment. Crop the frame. Set your size.
-                </p>
-                <button id="empty-choose" class="primary">Choose a video</button
-                ><span class="hint"
-                  >No uploads. No account. No server processing.</span
-                >
+                <p>Drop a video here.</p>
+                <button id="empty-choose" class="primary">Open video</button
+                ><span class="hint">Files stay on this device.</span>
               </div>
               <video
                 id="video"
@@ -134,10 +125,8 @@
             </fieldset>
             <div class="timeline-section">
               <div class="section-line">
-                <h2>Keep the good part.</h2>
-                <span id="selection-duration" class="muted"
-                  >No clip selected</span
-                >
+                <h2>Trim</h2>
+                <span id="selection-duration" class="muted"></span>
               </div>
               <div id="timeline" class="timeline">
                 <canvas id="waveform" aria-label="Audio waveform"></canvas>
@@ -196,16 +185,14 @@
                   <i data-lucide="play"></i>Play selection
                 </button>
               </div>
-              <p id="waveform-status" class="hint">
-                The waveform will appear when you open a video.
-              </p>
+              <p id="waveform-status" class="hint"></p>
             </div>
           </div>
           <aside class="export-settings">
-            <h2>Export settings</h2>
+            <h2>Export</h2>
             <fieldset id="settings">
               <label
-                >Target size
+                >Maximum size
                 <span class="input-unit"
                   ><input
                     id="target"
@@ -236,9 +223,6 @@
                   <option value="mute">Remove audio</option>
                 </select></label
               >
-              <p class="hint" id="audio-hint">
-                Balance sound quality with a smaller file.
-              </p>
               <details id="more-settings">
                 <summary>More settings</summary>
                 <label
@@ -261,16 +245,8 @@
             </fieldset>
             <dl class="export-summary">
               <div>
-                <dt>Selected</dt>
-                <dd id="summary-duration">—</dd>
-              </div>
-              <div>
-                <dt>Video budget</dt>
+                <dt>Video bitrate</dt>
                 <dd id="budget">—</dd>
-              </div>
-              <div>
-                <dt>Processing</dt>
-                <dd>On this device</dd>
               </div>
             </dl>
             <button id="export" class="primary with-icon" disabled>
@@ -278,9 +254,7 @@
             ><button id="cancel" hidden>Cancel export</button>
             <div class="job-status">
               <progress id="progress" max="1" value="0" hidden></progress>
-              <p id="status" class="hint" role="status">
-                Open a video to get started.
-              </p>
+              <p id="status" class="hint" role="status"></p>
             </div>
             <div id="result" hidden>
               <strong id="result-size"></strong
@@ -301,16 +275,13 @@
         aria-label="Advanced FFmpeg workspace"
       >
         <div class="advanced-intro">
-          <h2>FFmpeg, on your device.</h2>
+          <h2>FFmpeg</h2>
           <p class="muted">
-            Run custom arguments with the locally bundled WASM engine. Use
-            <code>input.ext</code> for your selected file. Commands without
-            <code>-i</code> get the input automatically.
+            Use <code>input.ext</code> for the selected file. Omit
+            <code>-i</code> to insert it automatically.
           </p>
           <p class="hint">
-            Best for smaller files and specialized conversions. Input limit: 2
-            GiB; available memory may impose a lower limit. Available codecs and
-            filters follow this FFmpeg build.
+            Input limit: 2 GiB. Large files may run out of memory.
           </p>
         </div>
         <div class="favorite-row">
@@ -335,12 +306,9 @@
           <button id="run-command" class="primary with-icon" disabled>
             <i data-lucide="play"></i>Run command</button
           ><button id="stop-command" hidden>Stop</button
-          ><span id="advanced-status" role="status" class="hint"
-            >Open a video first.</span
-          >
+          ><span id="advanced-status" role="status" class="hint"></span>
         </div>
-        <pre id="logs" tabindex="0" aria-label="FFmpeg output">
-Output will appear here.</pre>
+        <pre id="logs" tabindex="0" aria-label="FFmpeg output"></pre>
         <div id="advanced-result" hidden>
           <div class="section-line">
             <h2>Command output</h2>
@@ -363,8 +331,7 @@ Output will appear here.</pre>
         </div>
       </section>
       <footer>
-        <span>Built for the clip, not the cloud.</span
-        ><a
+        <a
           href="https://github.com/jackharrhy/8mber/tree/video-quality-preserve-audio"
           target="_blank"
           rel="noreferrer"

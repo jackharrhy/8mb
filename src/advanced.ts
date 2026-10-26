@@ -88,7 +88,7 @@ export function initAdvanced({
     $("stop-command").hidden = false;
     $("advanced-result").hidden = true;
     $("logs").textContent = "";
-    $("advanced-status").textContent = "Loading local FFmpeg engine…";
+    $("advanced-status").textContent = "Loading FFmpeg…";
     const engine = new FFmpeg();
     ffmpeg = engine;
     engine.on("log", ({ message }) => {
@@ -154,8 +154,7 @@ export function initAdvanced({
     } catch (e) {
       if (ffmpeg === engine) {
         showError(e instanceof Error ? e.message : String(e));
-        $("advanced-status").textContent =
-          "Command failed. See the log for details.";
+        $("advanced-status").textContent = "Command failed. Check the log.";
       }
     } finally {
       engine.terminate();

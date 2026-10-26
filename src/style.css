@@ -494,9 +494,6 @@ legend {
   border-color: var(--border);
   background: var(--panel);
 }
-#audio-hint {
-  margin-top: 8px;
-}
 details {
   border-bottom: 1px solid var(--line);
   margin-top: 16px;
@@ -704,11 +701,6 @@ footer > button {
     grid-row: 2;
     margin-top: -8px;
   }
-  .export-settings #audio-hint {
-    grid-column: 2;
-    grid-row: 2;
-    margin: 0;
-  }
   .export-settings #more-settings {
     grid-column: 1/-1;
     margin-top: 0;
@@ -835,10 +827,6 @@ footer > button {
   }
   .export-settings fieldset {
     grid-template-columns: 1fr;
-  }
-  .export-settings #audio-hint {
-    grid-column: auto;
-    grid-row: auto;
   }
   .size-presets {
     grid-row: auto;

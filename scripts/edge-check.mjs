@@ -22,10 +22,7 @@ console.log(
 await page.locator("#file").setInputFiles(".artifacts/source.mp4");
 await page.waitForFunction(() => !document.querySelector("#export").disabled);
 await page.waitForFunction(
-  () =>
-    document
-      .querySelector("#waveform-status")
-      .textContent.includes("Drag the blue"),
+  () => document.querySelector("#waveform-status").textContent.trim() === "",
   {},
   { timeout: 30000 },
 );

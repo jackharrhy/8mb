@@ -82,13 +82,13 @@ async function inspect(file: File) {
       },
     });
     if (!audio) {
-      send({ type: "waveform-status", text: "This video has no audio track." });
+      send({ type: "waveform-status", text: "No audio track." });
       return;
     }
     if (!(await audio.canDecode())) {
       send({
         type: "waveform-status",
-        text: "Waveform unavailable for this audio codec. Original audio can still be copied where supported.",
+        text: "Cannot display a waveform for this audio codec.",
       });
       return;
     }
@@ -115,7 +115,7 @@ async function inspect(file: File) {
     send({ type: "waveform", peaks: Array.from(peaks) });
     send({
       type: "waveform-status",
-      text: "Drag the blue handles or enter start and end times to trim.",
+      text: "",
     });
   } finally {
     input.dispose();

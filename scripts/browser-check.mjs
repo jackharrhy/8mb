@@ -54,10 +54,8 @@ console.log(
 const download = page.waitForEvent("download");
 await page.locator("#download").click();
 await (await download).saveAs(".artifacts/keep-audio.mp4");
-await page.waitForFunction(() =>
-  document
-    .querySelector("#waveform-status")
-    .textContent.includes("Drag the blue"),
+await page.waitForFunction(
+  () => document.querySelector("#waveform-status").textContent.trim() === "",
 );
 await page.locator("#result-video").evaluate(async (video) => {
   video.muted = true;

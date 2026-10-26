@@ -14,3 +14,6 @@ Behavioral baseline: jackharrhy/8mber branch video-quality-preserve-audio, commi
 Follow jackharrhy/auth's look and feel: restrained controls, Inter, warm stone neutrals and system light/dark mode.
 ## Assumptions
 The application is named 8mb after the workspace. No account or cloud storage is needed. Target sizes use MiB, matching the desktop code's calculation. Desktop is the main editing environment; mobile remains usable.
+
+## Interface copy
+Use short functional labels. No slogans, sales copy, motivational headings, or repeated privacy explanations. Show instructions only where needed to operate a control.

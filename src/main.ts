@@ -81,17 +81,10 @@ function updateBudget() {
         String(Number(b.dataset.size) === num("target")),
       ),
     );
-  $("audio-hint").textContent =
-    value("audio") === "keep"
-      ? "Copy original sound without re-encoding. Its size comes out of the video budget."
-      : value("audio") === "mute"
-        ? "Export a silent clip. Use the entire budget for video."
-        : "Balance sound quality with a smaller file.";
   if (!meta) return;
   const duration = num("end") - num("start");
   $("selection-duration").textContent =
     `${Math.max(0, duration).toFixed(2)} sec selected`;
-  $("summary-duration").textContent = `${Math.max(0, duration).toFixed(2)} sec`;
   const audioRate = meta.audioCodec
     ? value("audio") === "keep"
       ? meta.audioBitrate
@@ -205,7 +198,7 @@ async function loadFile(next: File) {
       updateTrim();
       job(
         meta.decodable
-          ? "Ready when you are."
+          ? ""
           : "Source codec unavailable in this browser. Try Advanced FFmpeg.",
       );
       if (!meta.decodable) {
@@ -472,14 +465,14 @@ $("export").addEventListener("click", async () => {
       $("result-size").textContent =
         `${bytes(m.blob.size)} · within ${options.target} MiB`;
       $("result").hidden = false;
-      job("Export complete. Your clip is ready to save.");
+      job("");
     } else if (m.type === "error") {
       finish();
       error(m.text);
-      job("Export failed. Adjust settings and try again.");
+      job("Export failed.");
     } else if (m.type === "cancelled") {
       finish();
-      job("Export cancelled. Your source is unchanged.");
+      job("Export cancelled.");
     }
   };
   encoder.postMessage({ type: "export", file, options });
