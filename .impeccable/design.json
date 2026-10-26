@@ -1,0 +1,455 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-26T15:15:11.475933+00:00",
+  "title": "Design System: 8mb",
+  "extensions": {
+    "colorMeta": {
+      "bg": {
+        "role": "neutral",
+        "displayName": "Bg",
+        "tonalRamp": [
+          "oklch(15% 0.0005 106.4)",
+          "oklch(26% 0.0009 106.4)",
+          "oklch(38% 0.0011 106.4)",
+          "oklch(50% 0.0013 106.4)",
+          "oklch(62% 0.0013 106.4)",
+          "oklch(74% 0.0011 106.4)",
+          "oklch(86% 0.0007 106.4)",
+          "oklch(95% 0.0002 106.4)"
+        ]
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Panel",
+        "tonalRamp": [
+          "oklch(15% 0.0005 106.4)",
+          "oklch(26% 0.0009 106.4)",
+          "oklch(38% 0.0011 106.4)",
+          "oklch(50% 0.0013 106.4)",
+          "oklch(62% 0.0013 106.4)",
+          "oklch(74% 0.0011 106.4)",
+          "oklch(86% 0.0007 106.4)",
+          "oklch(95% 0.0002 106.4)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "tonalRamp": [
+          "oklch(15% 0.0014 49.2)",
+          "oklch(26% 0.0027 49.2)",
+          "oklch(38% 0.0035 49.2)",
+          "oklch(50% 0.0041 49.2)",
+          "oklch(62% 0.0041 49.2)",
+          "oklch(74% 0.0033 49.2)",
+          "oklch(86% 0.0021 49.2)",
+          "oklch(95% 0.0006 49.2)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted",
+        "tonalRamp": [
+          "oklch(15% 0.0034 73.6)",
+          "oklch(26% 0.0062 73.6)",
+          "oklch(38% 0.0082 73.6)",
+          "oklch(50% 0.0096 73.6)",
+          "oklch(62% 0.0096 73.6)",
+          "oklch(74% 0.0077 73.6)",
+          "oklch(86% 0.0048 73.6)",
+          "oklch(95% 0.0014 73.6)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Line",
+        "tonalRamp": [
+          "oklch(15% 0.0009 48.7)",
+          "oklch(26% 0.0017 48.7)",
+          "oklch(38% 0.0022 48.7)",
+          "oklch(50% 0.0026 48.7)",
+          "oklch(62% 0.0026 48.7)",
+          "oklch(74% 0.0021 48.7)",
+          "oklch(86% 0.0013 48.7)",
+          "oklch(95% 0.0004 48.7)"
+        ]
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "Border",
+        "tonalRamp": [
+          "oklch(15% 0.0041 58.1)",
+          "oklch(26% 0.0075 58.1)",
+          "oklch(38% 0.0099 58.1)",
+          "oklch(50% 0.0116 58.1)",
+          "oklch(62% 0.0116 58.1)",
+          "oklch(74% 0.0093 58.1)",
+          "oklch(86% 0.0058 58.1)",
+          "oklch(95% 0.0017 58.1)"
+        ]
+      },
+      "hover": {
+        "role": "neutral",
+        "displayName": "Hover",
+        "tonalRamp": [
+          "oklch(15% 0.0009 48.7)",
+          "oklch(26% 0.0017 48.7)",
+          "oklch(38% 0.0022 48.7)",
+          "oklch(50% 0.0026 48.7)",
+          "oklch(62% 0.0026 48.7)",
+          "oklch(74% 0.0021 48.7)",
+          "oklch(86% 0.0013 48.7)",
+          "oklch(95% 0.0004 48.7)"
+        ]
+      },
+      "accent": {
+        "role": "secondary",
+        "displayName": "Accent",
+        "tonalRamp": [
+          "oklch(15% 0.0753 262.9)",
+          "oklch(26% 0.1399 262.9)",
+          "oklch(38% 0.1829 262.9)",
+          "oklch(50% 0.2152 262.9)",
+          "oklch(62% 0.2152 262.9)",
+          "oklch(74% 0.1722 262.9)",
+          "oklch(86% 0.1076 262.9)",
+          "oklch(95% 0.0323 262.9)"
+        ]
+      },
+      "selected": {
+        "role": "secondary",
+        "displayName": "Selected",
+        "tonalRamp": [
+          "oklch(15% 0.0111 255.6)",
+          "oklch(26% 0.0205 255.6)",
+          "oklch(38% 0.0269 255.6)",
+          "oklch(50% 0.0316 255.6)",
+          "oklch(62% 0.0316 255.6)",
+          "oklch(74% 0.0253 255.6)",
+          "oklch(86% 0.0158 255.6)",
+          "oklch(95% 0.0047 255.6)"
+        ]
+      },
+      "error": {
+        "role": "secondary",
+        "displayName": "Error",
+        "tonalRamp": [
+          "oklch(15% 0.0667 27.5)",
+          "oklch(26% 0.1238 27.5)",
+          "oklch(38% 0.1619 27.5)",
+          "oklch(50% 0.1905 27.5)",
+          "oklch(62% 0.1905 27.5)",
+          "oklch(74% 0.1524 27.5)",
+          "oklch(86% 0.0952 27.5)",
+          "oklch(95% 0.0286 27.5)"
+        ]
+      },
+      "on-primary": {
+        "role": "neutral",
+        "displayName": "On Primary",
+        "tonalRamp": [
+          "oklch(15% 0.0005 106.4)",
+          "oklch(26% 0.0009 106.4)",
+          "oklch(38% 0.0011 106.4)",
+          "oklch(50% 0.0013 106.4)",
+          "oklch(62% 0.0013 106.4)",
+          "oklch(74% 0.0011 106.4)",
+          "oklch(86% 0.0007 106.4)",
+          "oklch(95% 0.0002 106.4)"
+        ]
+      },
+      "dark-bg": {
+        "role": "neutral",
+        "displayName": "Dark Bg",
+        "tonalRamp": [
+          "oklch(15% 0.0014 49.2)",
+          "oklch(26% 0.0027 49.2)",
+          "oklch(38% 0.0035 49.2)",
+          "oklch(50% 0.0041 49.2)",
+          "oklch(62% 0.0041 49.2)",
+          "oklch(74% 0.0033 49.2)",
+          "oklch(86% 0.0021 49.2)",
+          "oklch(95% 0.0006 49.2)"
+        ]
+      },
+      "dark-panel": {
+        "role": "neutral",
+        "displayName": "Dark Panel",
+        "tonalRamp": [
+          "oklch(15% 0.0021 56.0)",
+          "oklch(26% 0.0040 56.0)",
+          "oklch(38% 0.0052 56.0)",
+          "oklch(50% 0.0061 56.0)",
+          "oklch(62% 0.0061 56.0)",
+          "oklch(74% 0.0049 56.0)",
+          "oklch(86% 0.0031 56.0)",
+          "oklch(95% 0.0009 56.0)"
+        ]
+      },
+      "dark-ink": {
+        "role": "neutral",
+        "displayName": "Dark Ink",
+        "tonalRamp": [
+          "oklch(15% 0.0005 106.4)",
+          "oklch(26% 0.0009 106.4)",
+          "oklch(38% 0.0011 106.4)",
+          "oklch(50% 0.0013 106.4)",
+          "oklch(62% 0.0013 106.4)",
+          "oklch(74% 0.0011 106.4)",
+          "oklch(86% 0.0007 106.4)",
+          "oklch(95% 0.0002 106.4)"
+        ]
+      },
+      "dark-muted": {
+        "role": "neutral",
+        "displayName": "Dark Muted",
+        "tonalRamp": [
+          "oklch(15% 0.0032 56.3)",
+          "oklch(26% 0.0059 56.3)",
+          "oklch(38% 0.0077 56.3)",
+          "oklch(50% 0.0091 56.3)",
+          "oklch(62% 0.0091 56.3)",
+          "oklch(74% 0.0072 56.3)",
+          "oklch(86% 0.0045 56.3)",
+          "oklch(95% 0.0014 56.3)"
+        ]
+      },
+      "dark-line": {
+        "role": "neutral",
+        "displayName": "Dark Line",
+        "tonalRamp": [
+          "oklch(15% 0.0022 34.3)",
+          "oklch(26% 0.0041 34.3)",
+          "oklch(38% 0.0053 34.3)",
+          "oklch(50% 0.0063 34.3)",
+          "oklch(62% 0.0063 34.3)",
+          "oklch(74% 0.0050 34.3)",
+          "oklch(86% 0.0031 34.3)",
+          "oklch(95% 0.0009 34.3)"
+        ]
+      },
+      "dark-border": {
+        "role": "neutral",
+        "displayName": "Dark Border",
+        "tonalRamp": [
+          "oklch(15% 0.0041 58.1)",
+          "oklch(26% 0.0075 58.1)",
+          "oklch(38% 0.0099 58.1)",
+          "oklch(50% 0.0116 58.1)",
+          "oklch(62% 0.0116 58.1)",
+          "oklch(74% 0.0093 58.1)",
+          "oklch(86% 0.0058 58.1)",
+          "oklch(95% 0.0017 58.1)"
+        ]
+      },
+      "dark-hover": {
+        "role": "neutral",
+        "displayName": "Dark Hover",
+        "tonalRamp": [
+          "oklch(15% 0.0022 34.3)",
+          "oklch(26% 0.0041 34.3)",
+          "oklch(38% 0.0053 34.3)",
+          "oklch(50% 0.0063 34.3)",
+          "oklch(62% 0.0063 34.3)",
+          "oklch(74% 0.0050 34.3)",
+          "oklch(86% 0.0031 34.3)",
+          "oklch(95% 0.0009 34.3)"
+        ]
+      },
+      "dark-accent": {
+        "role": "secondary",
+        "displayName": "Dark Accent",
+        "tonalRamp": [
+          "oklch(15% 0.0361 263.9)",
+          "oklch(26% 0.0671 263.9)",
+          "oklch(38% 0.0877 263.9)",
+          "oklch(50% 0.1032 263.9)",
+          "oklch(62% 0.1032 263.9)",
+          "oklch(74% 0.0826 263.9)",
+          "oklch(86% 0.0516 263.9)",
+          "oklch(95% 0.0155 263.9)"
+        ]
+      },
+      "dark-selected": {
+        "role": "secondary",
+        "displayName": "Dark Selected",
+        "tonalRamp": [
+          "oklch(15% 0.0257 256.0)",
+          "oklch(26% 0.0478 256.0)",
+          "oklch(38% 0.0625 256.0)",
+          "oklch(50% 0.0736 256.0)",
+          "oklch(62% 0.0736 256.0)",
+          "oklch(74% 0.0588 256.0)",
+          "oklch(86% 0.0368 256.0)",
+          "oklch(95% 0.0110 256.0)"
+        ]
+      },
+      "dark-error": {
+        "role": "secondary",
+        "displayName": "Dark Error",
+        "tonalRamp": [
+          "oklch(15% 0.0362 19.6)",
+          "oklch(26% 0.0673 19.6)",
+          "oklch(38% 0.0880 19.6)",
+          "oklch(50% 0.1035 19.6)",
+          "oklch(62% 0.1035 19.6)",
+          "oklch(74% 0.0828 19.6)",
+          "oklch(86% 0.0517 19.6)",
+          "oklch(95% 0.0155 19.6)"
+        ]
+      },
+      "dark-on-primary": {
+        "role": "neutral",
+        "displayName": "Dark On Primary",
+        "tonalRamp": [
+          "oklch(15% 0.0014 49.2)",
+          "oklch(26% 0.0027 49.2)",
+          "oklch(38% 0.0035 49.2)",
+          "oklch(50% 0.0041 49.2)",
+          "oklch(62% 0.0041 49.2)",
+          "oklch(74% 0.0033 49.2)",
+          "oklch(86% 0.0021 49.2)",
+          "oklch(95% 0.0006 49.2)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "headline": {
+        "displayName": "Page headline",
+        "purpose": "Main workspace heading."
+      },
+      "command": {
+        "displayName": "Command text",
+        "purpose": "FFmpeg arguments."
+      }
+    },
+    "shadows": [
+      {
+        "name": "crop-mask",
+        "value": "0 0 0 9999px #0008",
+        "purpose": "Dim image outside the crop."
+      },
+      {
+        "name": "trim-handle-outline",
+        "value": "0 0 0 1px var(--accent)",
+        "purpose": "WebKit trim handle selection edge."
+      }
+    ],
+    "motion": [
+      {
+        "name": "result-reveal",
+        "value": "reveal 0.2s ease-out",
+        "purpose": "Opacity .4 to 1 and translateY 4px to 0; disabled under reduced motion."
+      },
+      {
+        "name": "button-active",
+        "value": "translateY(1px)",
+        "purpose": "Pressed button feedback."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "stack-editor",
+        "value": "800px"
+      },
+      {
+        "name": "small-screen",
+        "value": "480px"
+      }
+    ],
+    "theme": {
+      "strategy": "prefers-color-scheme: dark",
+      "tokenPrefix": "dark-",
+      "source": "src/style.css"
+    },
+    "focus": {
+      "value": "2px solid var(--muted)",
+      "offset": "3px"
+    },
+    "tonalRamps": {
+      "purpose": "Synthesized OKLCH display metadata; not implemented UI tokens."
+    }
+  },
+  "components": [
+    {
+      "name": "Primary button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Neutral primary action used throughout the editor.",
+      "html": "<button class=\"ds-button-primary\">Export video</button>",
+      "css": ".ds-button-primary{font-family:Inter,Arial,sans-serif;font-size:14px;color:var(--ink);display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:8px 13px;border:1px solid var(--border);border-radius:6px;background:var(--bg);font-weight:500;cursor:pointer;background:var(--ink);color:var(--on-primary);border-color:var(--ink);}.ds-button-primary:hover{background:var(--muted);}.ds-button-primary:focus-visible{outline:2px solid var(--muted);outline-offset:3px}.ds-button-primary:active{transform:translateY(1px)}.ds-button-primary:disabled{opacity:.55;color:var(--muted);cursor:not-allowed}@media(max-width:480px){.ds-button-primary{min-height:44px}}"
+    },
+    {
+      "name": "Secondary button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Neutral secondary action used throughout the editor.",
+      "html": "<button class=\"ds-button-secondary\">Open video</button>",
+      "css": ".ds-button-secondary{font-family:Inter,Arial,sans-serif;font-size:14px;color:var(--ink);display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:8px 13px;border:1px solid var(--border);border-radius:6px;background:var(--bg);font-weight:500;cursor:pointer;}.ds-button-secondary:hover{background:var(--hover);}.ds-button-secondary:focus-visible{outline:2px solid var(--muted);outline-offset:3px}.ds-button-secondary:active{transform:translateY(1px)}.ds-button-secondary:disabled{opacity:.55;color:var(--muted);cursor:not-allowed}@media(max-width:480px){.ds-button-secondary{min-height:44px}}"
+    },
+    {
+      "name": "Numeric input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Label above a tabular numeric field.",
+      "html": "<label class=\"ds-field\">Target size<input type=\"number\" value=\"8\" aria-label=\"Target size\"></label>",
+      "css": ".ds-field{font-family:Inter,Arial,sans-serif;font-size:14px;color:var(--ink);display:grid;gap:8px;font-weight:500}.ds-field input{font-family:Inter,Arial,sans-serif;font-size:14px;color:var(--ink);width:100%;height:40px;padding:0 10px;min-width:0;border:1px solid var(--border);border-radius:6px;background:var(--bg);font-variant-numeric:tabular-nums}.ds-field input:focus-visible{outline:2px solid var(--muted);outline-offset:3px}@media(max-width:480px){.ds-field input{min-height:44px}}"
+    },
+    {
+      "name": "Workspace navigation",
+      "kind": "nav",
+      "refersTo": "navigation-current",
+      "description": "Quiet navigation with a tonal current-page state.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Workspace\"><a href=\"#edit\" aria-current=\"page\">Edit</a><a href=\"#advanced\">Advanced</a></nav>",
+      "css": ".ds-nav{font-family:Inter,Arial,sans-serif;font-size:14px;color:var(--ink);display:flex;gap:4px}.ds-nav a{padding:8px 12px;border-radius:6px;color:var(--muted);text-decoration:none}.ds-nav a[aria-current],.ds-nav a:hover{background:var(--panel);color:var(--ink)}.ds-nav a:focus-visible{outline:2px solid var(--muted);outline-offset:3px}@media(max-width:480px){.ds-nav a{padding:10px 8px}}"
+    },
+    {
+      "name": "Preview surface",
+      "kind": "custom",
+      "refersTo": "preview",
+      "description": "The flat bounded media surface, shown in its empty state.",
+      "html": "<div class=\"ds-preview\"><strong>Your next clip starts here.</strong><p>Drop a video here, or open one from your device.</p></div>",
+      "css": ".ds-preview{font-family:Inter,Arial,sans-serif;font-size:14px;color:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:16px;height:260px;padding:28px;background:var(--panel);border:1px solid var(--line);border-radius:8px}.ds-preview strong{font-size:18px;font-weight:600;line-height:26px;letter-spacing:-.02em}.ds-preview p{font-size:13px;color:var(--muted);line-height:1.6;margin:0}"
+    },
+    {
+      "name": "Size preset",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "A neutral pressed state for a target-size shortcut.",
+      "html": "<button class=\"ds-preset\" aria-pressed=\"true\">8</button>",
+      "css": ".ds-preset{font-family:Inter,Arial,sans-serif;font-size:14px;color:var(--ink);display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:8px 13px;border:1px solid var(--border);border-radius:6px;background:var(--bg);font-weight:500;cursor:pointer;min-height:30px;padding:4px 12px;font-size:12px;border-color:var(--line)}.ds-preset[aria-pressed=\"true\"]{border-color:var(--border);background:var(--panel)}.ds-preset:hover{background:var(--hover)}.ds-preset:focus-visible{outline:2px solid var(--muted);outline-offset:3px}.ds-preset:active{transform:translateY(1px)}@media(max-width:480px){.ds-preset{min-height:44px}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The quiet working surface",
+    "overview": "The inherited jack/auth world is a quiet working surface: warm stone neutrals, compact Inter typography, and clearly bounded controls. The video and its editing selections carry the visual attention.\n\nThe interface uses a restrained utility aesthetic with explicit text, aligned numeric fields, and system light/dark themes. The editor stays visually consistent with the command workspace.",
+    "keyCharacteristics": [
+      "Warm stone neutrals and restrained blue selections.",
+      "Compact Inter typography with precise numeric controls.",
+      "Flat surfaces, fine separators, and gently rounded controls."
+    ],
+    "rules": [
+      {
+        "name": "The Selection Rule",
+        "body": "Blue describes editing state; the principal action uses neutral ink.",
+        "section": "colors"
+      },
+      {
+        "name": "The Focus Rule",
+        "body": "Interactive elements show a muted outline (2px) offset from their edge (3px); unit fields show the same ring around the whole group.",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "Do inherit the jack/auth warm stone palette and Inter typography.",
+      "Do reserve blue for editing selection, crop mode, and file drop feedback.",
+      "Do keep numeric editing alternatives beside direct manipulation.",
+      "Do preserve visible keyboard focus and system dark/reduced-motion preferences."
+    ],
+    "donts": [
+      "Don't add decorative shadows or ornamental imagery to the workspace.",
+      "Don't turn neutral primary actions into blue promotional buttons.",
+      "Don't use monospace for general interface copy; reserve it for commands and output."
+    ]
+  }
+}
