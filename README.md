@@ -47,12 +47,15 @@ Media processing is local, but loading the app and its processing modules requir
 npm test
 npm run build
 # With npm start running and Playwright Chromium plus native ffmpeg/ffprobe installed:
+export BASE_URL=http://127.0.0.1:5188/8mb/
 npm run test:browser
 npm run test:edge
 node scripts/timeline-check.mjs
 ```
 
 Browser tests cover exports, size limits, preserved audio packet hashes, large-file reading, playback, and responsive layout. Edge checks cover OPFS, WebM, cancellation, GIF, MP3, and accessibility.
+
+CI checks workflows, runs unit tests and builds the app.
 
 ## Docker and hosting
 
