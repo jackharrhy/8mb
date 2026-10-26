@@ -204,11 +204,6 @@ legend {
   background: var(--panel);
   color: var(--ink);
 }
-.connection {
-  margin-left: auto;
-  font-size: 12px;
-  color: var(--muted);
-}
 .workspace {
   max-width: 1168px;
   padding: 0 24px;
@@ -630,11 +625,6 @@ footer {
 footer > a {
   margin-left: auto;
 }
-footer > button {
-  font-size: 12px;
-  min-height: 30px;
-  padding: 4px 10px;
-}
 .skip-link {
   position: fixed;
   top: 8px;
@@ -724,11 +714,6 @@ footer > button {
   .file-info strong {
     max-width: 100%;
   }
-  .connection {
-    max-width: 140px;
-    text-align: right;
-    line-height: 1.4;
-  }
 }
 @media (max-width: 480px) {
   .site-header {
@@ -800,10 +785,6 @@ footer > button {
   }
   .advanced-actions {
     flex-wrap: wrap;
-  }
-  .connection {
-    font-size: 10px;
-    max-width: 90px;
   }
   .timeline-section {
     margin-top: 24px;

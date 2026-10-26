@@ -6,11 +6,10 @@
     <meta name="theme-color" content="#fafaf9" />
     <meta
       name="description"
-      content="Trim, crop and compress videos offline."
+      content="Trim, crop and compress videos in your browser."
     />
     <title>8mb · Local video editor</title>
     <link rel="icon" type="image/svg+xml" href="/icon.svg" />
-    <link rel="manifest" href="/manifest.webmanifest" />
     <link
       rel="preload"
       href="/fonts/inter-variable.woff2"
@@ -27,9 +26,6 @@
         <a href="#edit" aria-current="page" id="edit-tab">Edit</a
         ><a href="#advanced" id="advanced-tab">Advanced</a>
       </nav>
-      <span id="offline-status" class="connection" role="status"
-        >Preparing offline…</span
-      >
     </header>
     <main id="main" class="workspace">
       <div class="page-heading">
@@ -336,7 +332,7 @@
           target="_blank"
           rel="noreferrer"
           >Based on 8mber</a
-        ><button id="install" hidden>Install app</button>
+        >
       </footer>
     </main>
     <script type="module" src="/src/main.ts"></script>

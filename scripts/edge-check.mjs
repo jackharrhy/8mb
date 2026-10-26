@@ -10,8 +10,8 @@ const page = await context.newPage();
 page.on("pageerror", (e) => console.log("PAGE ERROR", e.message));
 await page.goto("https://newport.hedgehog-python.ts.net:8465");
 await page
-  .getByText("Available offline", { exact: true })
-  .waitFor({ timeout: 60000 });
+  .getByRole("heading", { name: "Video editor", exact: true })
+  .waitFor();
 console.log(
   "SECURE",
   await page.evaluate(() => ({
@@ -125,8 +125,8 @@ console.log(
   await page.locator("#error").textContent(),
 );
 assert.equal(await page.locator("#advanced-image").isVisible(), true);
-await context.setOffline(true);
 await page.reload();
+await page.locator("#advanced-tab").click();
 await page.locator("#file").setInputFiles(".artifacts/source.mp4");
 await page.waitForFunction(
   () => !document.querySelector("#run-command").disabled,
@@ -144,9 +144,6 @@ await page.waitForFunction(
   {},
   { timeout: 90000 },
 );
-console.log(
-  "OFFLINE ADVANCED",
-  await page.locator("#advanced-status").textContent(),
-);
+console.log("MP3", await page.locator("#advanced-status").textContent());
 assert.match(await page.locator("#advanced-status").textContent(), /^Complete/);
 await browser.close();

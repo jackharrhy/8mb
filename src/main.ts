@@ -1,6 +1,6 @@
 import { clearStaleExports } from "./storage";
 import { initAdvanced } from "./advanced";
-import { initOffline } from "./offline";
+import { clearLegacyCache } from "./legacy-cache";
 import { $, num, value, setValue, bytes } from "./ui";
 import "./style.css";
 import {
@@ -496,6 +496,6 @@ addEventListener("beforeunload", (e) => {
     e.preventDefault();
   }
 });
-initOffline();
+void clearLegacyCache();
 
 void clearStaleExports();

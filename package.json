@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 127.0.0.1 --port 5188",
-    "build": "tsc --noEmit && vite build && node scripts/build-offline.mjs",
+    "build": "tsc --noEmit && vite build",
     "start": "node server.mjs",
     "test": "node --test test/*.test.mjs",
     "test:browser": "node scripts/create-fixtures.mjs && node scripts/browser-check.mjs && node scripts/verify-media.mjs",

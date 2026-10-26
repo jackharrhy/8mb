@@ -20,8 +20,8 @@ page.on("console", (m) => {
 });
 await page.goto("http://127.0.0.1:5188");
 await page
-  .getByText("Available offline", { exact: true })
-  .waitFor({ timeout: 60000 });
+  .getByRole("heading", { name: "Video editor", exact: true })
+  .waitFor();
 await page.screenshot({
   path: ".impeccable/review/empty-desktop.png",
   fullPage: true,
@@ -109,18 +109,6 @@ await page.screenshot({
   path: ".impeccable/review/advanced.png",
   fullPage: true,
 });
-await context.setOffline(true);
-await page.reload();
-await page.locator("#offline-status").getByText("Available offline").waitFor();
-await page.locator("#file").setInputFiles(".artifacts/source.mp4");
-await page.locator("#edit-tab").click();
-await page.waitForFunction(() => !document.querySelector("#export").disabled);
-await page.locator("#end").fill("1");
-await page.locator("#target").fill("0.5");
-await page.locator("#export").click();
-await page.locator("#result").waitFor({ state: "visible", timeout: 120000 });
-console.log("OFFLINE EXPORT", await page.locator("#status").textContent());
-await context.setOffline(false);
 await page.locator("#file").setInputFiles(".artifacts/large.mp4");
 await page.waitForFunction(() =>
   document.querySelector("#file-meta").textContent.includes("2193.45"),
@@ -137,4 +125,11 @@ await writeFile(
   JSON.stringify({ errors, completed: true }, null, 2),
 );
 assert.deepEqual(errors, []);
+assert.equal(
+  await page.evaluate(
+    async () => (await navigator.serviceWorker.getRegistrations()).length,
+  ),
+  0,
+);
+assert.equal(await page.locator('link[rel="manifest"]').count(), 0);
 await browser.close();
