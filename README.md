@@ -47,12 +47,17 @@ Media processing is local, but loading the app and its processing modules requir
 npm test
 npm run build
 # With npm start running and Playwright Chromium plus native ffmpeg/ffprobe installed:
+export BASE_URL=http://127.0.0.1:5188/8mb/
 npm run test:browser
 npm run test:edge
 node scripts/timeline-check.mjs
 ```
 
 Browser tests cover exports, size limits, preserved audio packet hashes, large-file reading, playback, and responsive layout. Edge checks cover OPFS, WebM, cancellation, GIF, MP3, and accessibility.
+
+CI runs unit/build checks and these browser checks against a disposable, read-only nginx container on localhost, on both PRs and pushes to main. Publishing waits for all checks. Workflow lint uses jactionlint 2.3.0 with shellcheck; locally, with uv and shellcheck installed, run `uvx --from jactionlint==2.3.0 jactionlint --strict-exit`.
+
+All workflows are owned by this repository; there is no dependency on a shared workflow repository. Action references are release-commit pinned and maintained by weekly Dependabot PRs, with a seven-day cooldown and grouped minor/patch updates. Major updates and the jactionlint tool version are reviewed explicitly.
 
 ## Docker and hosting
 
