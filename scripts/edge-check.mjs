@@ -9,9 +9,7 @@ const context = await browser.newContext({ acceptDownloads: true });
 const page = await context.newPage();
 page.on("pageerror", (e) => console.log("PAGE ERROR", e.message));
 await page.goto("https://newport.hedgehog-python.ts.net:8465");
-await page
-  .getByRole("heading", { name: "Video editor", exact: true })
-  .waitFor();
+await page.getByRole("navigation", { name: "Workspace" }).waitFor();
 console.log(
   "SECURE",
   await page.evaluate(() => ({

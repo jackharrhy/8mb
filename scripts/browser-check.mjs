@@ -19,9 +19,7 @@ page.on("console", (m) => {
   if (m.type() === "error") console.log("CONSOLE", m.text());
 });
 await page.goto("http://127.0.0.1:5188");
-await page
-  .getByRole("heading", { name: "Video editor", exact: true })
-  .waitFor();
+await page.getByRole("navigation", { name: "Workspace" }).waitFor();
 await page.screenshot({
   path: ".impeccable/review/empty-desktop.png",
   fullPage: true,

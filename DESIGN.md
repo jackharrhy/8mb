@@ -136,7 +136,7 @@ Numeric inputs, the time ruler, and export values use tabular numerals. Commands
 
 ## Layout
 
-Header and workspace share a centered outer maximum (1168px), including side gutters (24px), yielding an inner workspace (1120px). The header has a minimum height (65px). The main workspace starts below it (34px). Desktop editing uses a flexible preview column and export column (272px), separated by a gap (32px); the export column has a left rule and inset (28px).
+The workspace has a centered outer maximum (1168px), side gutters (24px), and top margin (24px). A single toolbar contains navigation and the file action. There is no separate header, brand, or page title. Desktop editing uses a flexible preview column and export column (272px), separated by a gap (32px); the export column has a left rule and inset (28px).
 
 At viewport widths of (800px) or less, the columns stack with export settings after the timeline, separated by a top rule. Settings use two columns until (480px), then one. At (480px) or less, gutters become (16px), main top spacing becomes (24px), trim and crop numeric fields use two columns, and actions may wrap. Standard buttons and form fields target a minimum height (44px) on this small-screen breakpoint; compact controls retain their specific styles where more-specific selectors apply.
 
@@ -164,11 +164,11 @@ Numeric fields and selects share a full-width bordered control. Numeric units si
 
 ### Navigation
 
-Edit and Advanced sit beside the brand as compact links. Current and hovered links use the panel surface and ink; inactive links use muted ink. Mobile reduces their side padding.
+Edit and Advanced are compact links at the left of the toolbar; Open video is at the right. Current and hovered links use the panel surface and ink; inactive links use muted ink. Mobile reduces their side padding.
 
 ### Preview and timeline
 
-The empty preview centers a small outline film icon, a short heading, explanatory text, a primary file action, and a privacy hint. Loaded media fits within the dark preview. The waveform region uses a panel background, translucent blue selection, blue boundaries, and narrow draggable handles; exact numeric fields sit below it. Crop mode dims the excluded region and shows numeric alternatives.
+The empty preview centers a small outline film icon, a drop instruction, a primary file action, and a privacy hint. Loaded media fits within the dark preview. The waveform region uses a panel background, translucent blue selection, blue boundaries, and narrow draggable handles; exact numeric fields sit below it. Crop mode dims the excluded region and shows numeric alternatives.
 
 ### Export and command output
 

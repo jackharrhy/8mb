@@ -19,3 +19,5 @@ The application is named 8mb after the workspace. No account or cloud storage is
 Use short functional labels. No slogans, sales copy, motivational headings, or repeated privacy explanations. Show instructions only where needed to operate a control.
 
 The current request supersedes offline app installation: use a basic one-page SPA.
+
+Keep the top bar to Edit / Advanced and Open video. No brand label or visible page title.

@@ -47,7 +47,7 @@ try {
   legacy = false;
   await page.reload();
   await page
-    .getByRole("heading", { name: "Video editor", exact: true })
+    .getByRole("navigation", { name: "Workspace" })
     .waitFor({ timeout: 30000 });
   await page.waitForFunction(
     async () => !(await navigator.serviceWorker.getRegistrations()).length,
@@ -55,9 +55,7 @@ try {
   assert.deepEqual(await page.evaluate(() => caches.keys()), []);
   assert.equal(await page.locator('link[rel="manifest"]').count(), 0);
   await page.reload();
-  await page
-    .getByRole("heading", { name: "Video editor", exact: true })
-    .waitFor();
+  await page.getByRole("navigation", { name: "Workspace" }).waitFor();
   console.log(
     "Old cached page migrated to SPA; registrations and app caches removed; refresh stays current.",
   );

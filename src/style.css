@@ -174,50 +174,32 @@ legend {
   height: 16px;
   stroke-width: 1.6;
 }
-.site-header {
-  max-width: 1168px;
-  min-height: 65px;
-  padding: 0 24px;
-  margin: auto;
-  border-bottom: 1px solid var(--line);
+.toolbar {
   display: flex;
   align-items: center;
-  gap: 36px;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
 }
-.brand {
-  font-weight: 600;
-  letter-spacing: -0.03em;
-  text-decoration: none;
-}
-.site-header nav {
+.toolbar nav {
   display: flex;
   gap: 4px;
 }
-.site-header nav a {
+.toolbar nav a {
   padding: 8px 12px;
   border-radius: 6px;
   color: var(--muted);
   text-decoration: none;
 }
-.site-header nav a[aria-current],
-.site-header nav a:hover {
+.toolbar nav a[aria-current],
+.toolbar nav a:hover {
   background: var(--panel);
   color: var(--ink);
 }
 .workspace {
   max-width: 1168px;
   padding: 0 24px;
-  margin: 34px auto 0;
-}
-.page-heading {
-  display: flex;
-  justify-content: space-between;
-  gap: 24px;
-  align-items: center;
-  margin-bottom: 28px;
-}
-.page-heading p {
-  margin-top: 6px;
+  margin: 24px auto 0;
 }
 .editor-grid {
   display: grid;
@@ -716,32 +698,15 @@ footer > a {
   }
 }
 @media (max-width: 480px) {
-  .site-header {
-    padding: 0 16px;
-    gap: 14px;
-  }
-  .site-header nav {
+  .toolbar nav {
     gap: 0;
   }
-  .site-header nav a {
+  .toolbar nav a {
     padding: 10px 8px;
   }
   .workspace {
     padding: 0 16px;
     margin-top: 24px;
-  }
-  .page-heading {
-    align-items: start;
-    gap: 12px;
-    margin-bottom: 24px;
-  }
-  .page-heading p {
-    font-size: 12px;
-    max-width: 24ch;
-  }
-  .page-heading button {
-    font-size: 12px;
-    padding: 8px 10px;
   }
   .preview {
     height: 260px;
